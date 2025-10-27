@@ -295,6 +295,10 @@ def inserir_gspread(base):
 
 print("Inserindo no google sheets...")
 
-inserir_gspread(base_final)
+download_folder = os.path.join(os.path.expanduser("~"), "Downloads")
+output_path = os.path.join(download_folder, 'Análise de Pedidos - TRATADO.csv')
+base_final.to_csv(output_path, index=False, encoding='utf-8-sig')
+
+# inserir_gspread(base_final)
 
 print("Dados inseridos com sucesso")
